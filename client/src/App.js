@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 // User Context Information
 import { UserContext } from "./context/UserContext";
-import useGetUserData from "./hook/useGetUserData";
+import useGetUserData from "./hooks/useGetUserData";
 
 import { theme } from "./themes/theme";
 import NavBar from "./components/NavBar";

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 8,
   },
   link: {
-    marginLeft: 24,
+    marginLeft: 50,
     textDecoration: "none",
     padding: 1,
     color: theme.palette.common.black,
@@ -32,12 +32,15 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     display: "flex",
     justifyContent: "space-between",
-    padding: 12,
+    padding: 24,
     borderBottom: `1px solid ${theme.palette.primary.shadow}`,
   },
   active: {
     marginTop: 2,
     borderBottom: `2px solid ${theme.palette.primary.main}`,
+  },
+  nameFix: {
+    marginRight: 16,
   },
 }));
 
@@ -95,6 +98,7 @@ function NavBar() {
 
             <Button
               display="flex"
+              paddingLeft="10px"
               flexDirection="row"
               alignItems="center"
               className={classes.link}
@@ -102,7 +106,7 @@ function NavBar() {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <Typography variant="subtitle1">
+              <Typography className={classes.nameFix} variant="subtitle1">
                 {user ? user.username : "Test Name"}
               </Typography>
               <Avatar></Avatar>
