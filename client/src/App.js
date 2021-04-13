@@ -2,13 +2,12 @@ import React from "react";
 import { MuiThemeProvider } from "@material-ui/core";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import { theme } from "./themes/theme";
-import NavBar from "./components/NavBar";
-
-// User Context Informatino
+// User Context Information
 import { UserContext } from "./components/User/UserContext";
 import getUserData from "./components/User/getUserData";
 
+import { theme } from "./themes/theme";
+import NavBar from "./components/NavBar";
 import "./App.css";
 import Login from "./pages/Login";
 import Explore from "./pages/Explore";
@@ -24,7 +23,6 @@ function App() {
       <UserContext.Provider value={{ user, setUser, isLoading }}>
         <BrowserRouter>
           <NavBar />
-
           <Route path="/login" component={Login} />
           <Route path="/explore" component={Explore} />
           <Route path="/launch" component={Launch} />
