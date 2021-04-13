@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useFindUser() {
+export default function useGetUserData() {
   const [user, setUser] = useState(null);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {

@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 // User Context Information
 import { UserContext } from "./components/User/UserContext";
-import getUserData from "./components/User/getUserData";
+import useGetUserData from "./Hooks/useGetUserData";
 
 import { theme } from "./themes/theme";
 import NavBar from "./components/NavBar";
@@ -16,7 +16,7 @@ import Home from "./pages/Home";
 
 function App() {
   // Validate user
-  const { user, setUser, isLoading } = getUserData();
+  const { user, setUser, isLoading } = useGetUserData();
 
   return (
     <MuiThemeProvider theme={theme}>

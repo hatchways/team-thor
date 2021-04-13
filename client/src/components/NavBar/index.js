@@ -8,7 +8,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { UserContext } from "../User/UserContext";
 import logo from "./ic-logo.png";
 
@@ -64,21 +64,21 @@ function NavBar() {
         <Typography variant="h6">Product Launch</Typography>
       </Box>
 
-      {/* Links and login */}
+      {/* Links and user/login */}
       <Box display="flex" alignItems="center" id="nav-Right">
         <NavLink
           className={classes.link}
-          to="explore"
+          to="/explore"
           activeClassName={classes.active}
         >
           <Typography variant="subtitle1">EXPLORE</Typography>
         </NavLink>
 
         {/* Display login or user data, depending on login */}
-        {!user ? (
+        {user ? (
           <NavLink
             className={classes.link}
-            to="login"
+            to="/login"
             activeClassName={classes.active}
           >
             <Typography variant="subtitle1">LOGIN</Typography>
@@ -87,7 +87,7 @@ function NavBar() {
           <Box display="flex" flexDirection="row" alignItems="center">
             <NavLink
               className={classes.link}
-              to="launch"
+              to="/launch"
               activeClassName={classes.active}
             >
               <Typography variant="subtitle1">LAUNCH</Typography>
@@ -117,7 +117,7 @@ function NavBar() {
               onClose={handleClose}
             >
               <MenuItem onClick={handleClose}>
-                <NavLink to="home" className={classes.subLink}>
+                <NavLink to="/home" className={classes.subLink}>
                   <Typography variant="subtitle1">Profile</Typography>
                 </NavLink>
               </MenuItem>
