@@ -1,20 +1,15 @@
 import { Box, Grid, Typography, TextField, Button } from '@material-ui/core'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import useStyles from '../styles'
-import { useForm } from 'react-hook-form'
 import green from '@material-ui/core/colors/green'
-import FormGroup from '@material-ui/core/FormGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
+import { useForm } from 'react-hook-form'
 
-
-const Login = () => {
+const Register = () => {
     const classes = useStyles()
+    const { register, handleSubmit, formState: { errors }, watch } = useForm()
 
-    const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm({
-        defaultValues: { remember: false }
-    })
+    const password = watch('password')
 
     const onSubmit = (formData) => {
         console.log(formData)
@@ -23,16 +18,29 @@ const Login = () => {
     return (
         <Grid container item direction='column' xs={12} spacing={6}>
             <Grid item className={classes.inlineCenter} xs={12}>
-                <Typography className={classes.formHeaderTitle}>Member login</Typography>
+                <Typography className={classes.formHeaderTitle}>Create an account</Typography>
                 <hr size="0.5" width="3%" color={green['A400']}></hr>
                 <Box className={classes.formHeaderBody}>
-                    <span>New here? </span>
-                    <Link className={classes.formHeaderBodyLink} to='signup'>Sign Up</Link>
+                    <span>Already a member? </span>
+                    <Link className={classes.formHeaderBodyLink} to='login'>Login</Link>
                 </Box>
             </Grid>
             <Grid container item xs={12} alignItems="center" direction='column'>
                 <form onSubmit={handleSubmit(onSubmit)} className={classes.formWidth}>
                     <Grid container item xs={12} alignItems="center" direction='column' spacing={3}>
+                        <Grid container item xs={12} md={4}>
+                            <TextField
+                                fullWidth
+                                autoComplete='off'
+                                label="Name"
+                                variant="outlined"
+                                name='name'
+                                {...register('name', { required: 'name is required' })}
+                                error={Boolean(errors.name)}
+                                helperText={errors.name ? errors.name.message : null}
+
+                            />
+                        </Grid>
                         <Grid container item xs={12} md={4}>
                             <TextField
                                 fullWidth
@@ -67,22 +75,21 @@ const Login = () => {
                             />
                         </Grid>
                         <Grid container item xs={12} md={4}>
-                            <FormGroup row>
-                                <FormControlLabel
-                                    control={
-                                    <Checkbox
-                                        name='remember'
-                                        {...register('remember')}
-                                        // onChange={e => setRememberMe(e.target.checked)}
-                                        // value={defaultValues.remember}
-                                        onChange={e => {
-                                            setValue('remember', e.target.checked)
-                                        }}
-                                    />
-                                    }
-                                    label="Remember me"
-                                />
-                            </FormGroup>
+                            <TextField
+                                fullWidth
+                                type='password'
+                                label="Confirm Password"
+                                variant="outlined"
+                                name='confirm password'
+                                {...register('confirmPassword', {
+                                    required: 'Confirm Password is required',
+                                    validate: value => {
+                                        return value === password || 'The passwords do not match'
+                                    }})
+                                }
+                                error={Boolean(errors.confirmPassword)}
+                                helperText={errors.confirmPassword ? errors.confirmPassword.message : null}
+                            />
                         </Grid>
                         <Grid container item xs={12} md={2}>
                             <Button
@@ -93,7 +100,7 @@ const Login = () => {
                                 disableElevation
 
                                 >
-                                login
+                                create account
                             </Button>
                         </Grid>
                     </Grid>
@@ -103,4 +110,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register

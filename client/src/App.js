@@ -10,6 +10,7 @@ import { theme } from "./themes/theme";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Explore from "./pages/Explore";
 import Launch from "./pages/Launch";
 import Home from "./pages/Home";
@@ -24,6 +25,7 @@ function App() {
         <BrowserRouter>
           <NavBar />
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
           <Route path="/explore" component={Explore} />
           <Route path="/launch" component={Launch} />
           <Route path="/home" component={Home} />
