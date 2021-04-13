@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: 34,
     width: 34,
-    marginRight: 8,
+    marginRight: 18,
   },
   link: {
     marginLeft: 50,
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     display: "flex",
     justifyContent: "space-between",
-    padding: 24,
+    padding: "24px 36px",
     borderBottom: `1px solid ${theme.palette.primary.shadow}`,
   },
   active: {
