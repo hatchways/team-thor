@@ -73,16 +73,9 @@ function NavBar() {
         >
           <Typography variant="subtitle1">EXPLORE</Typography>
         </NavLink>
-        <NavLink
-          className={classes.link}
-          to="launch"
-          activeClassName={classes.active}
-        >
-          <Typography variant="subtitle1">LAUNCH</Typography>
-        </NavLink>
 
         {/* Display login or user data, depending on login */}
-        {user ? (
+        {!user ? (
           <NavLink
             className={classes.link}
             to="login"
@@ -91,7 +84,15 @@ function NavBar() {
             <Typography variant="subtitle1">LOGIN</Typography>
           </NavLink>
         ) : (
-          <div>
+          <Box display="flex" flexDirection="row" alignItems="center">
+            <NavLink
+              className={classes.link}
+              to="launch"
+              activeClassName={classes.active}
+            >
+              <Typography variant="subtitle1">LAUNCH</Typography>
+            </NavLink>
+
             <Button
               display="flex"
               flexDirection="row"
@@ -122,7 +123,7 @@ function NavBar() {
               </MenuItem>
               <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
-          </div>
+          </Box>
         )}
       </Box>
     </Box>
