@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../User/UserContext";
+import { UserContext } from "../../context/UserContext";
 import logo from "./ic-logo.png";
 
 const useStyles = makeStyles((theme) => ({

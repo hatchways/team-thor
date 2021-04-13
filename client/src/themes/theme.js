@@ -2,7 +2,7 @@ import { createMuiTheme } from "@material-ui/core";
 
 export const theme = createMuiTheme({
   typography: {
-    fontFamily: ["Proxima Nova", "Roboto"].join(","),
+    fontFamily: "'Proxima Nova', 'Roboto'",
     fontSize: 12,
     h6: {
       fontFamily: "Gilroy-Medium",

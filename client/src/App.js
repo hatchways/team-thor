@@ -3,8 +3,8 @@ import { MuiThemeProvider } from "@material-ui/core";
 import { BrowserRouter, Route } from "react-router-dom";
 
 // User Context Information
-import { UserContext } from "./components/User/UserContext";
-import useGetUserData from "./Hooks/useGetUserData";
+import { UserContext } from "./context/UserContext";
+import useGetUserData from "./hook/useGetUserData";
 
 import { theme } from "./themes/theme";
 import NavBar from "./components/NavBar";
